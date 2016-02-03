@@ -27,7 +27,7 @@ angular.module('AcesUp').controller('AcesUpController', function($scope, $http){
 
     $scope.moveCard = function(src, dest){
         $http.post('/moveCard/' + src + '/' + dest, $scope.gameState).then(function(result){
-            console.log(result);
+            setGameState(result.data);
         });
     };
 
