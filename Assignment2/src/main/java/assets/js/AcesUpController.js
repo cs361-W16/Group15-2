@@ -66,10 +66,10 @@ angular.module('AcesUp').controller('AcesUpController', function($scope, $http){
 
             if (initial_length < new_length) {
 
-                // Set the $scope new_cards variable to the column with a new card
-                $scope.new_cards = i;
+                // Set the $scope new_col variable to the column with a new card
+                $scope.new_col = i;
 
-                console.log("Added");
+                console.log("Added to " + i);
             }
             else if (initial_length > new_length) {
                 console.log("Removed");
