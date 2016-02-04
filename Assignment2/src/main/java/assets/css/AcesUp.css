@@ -4,7 +4,7 @@
 }
 
 h1{
-    padding-top: 8px;
+    padding-top: 16px;
 }
 
 .wrapper{
@@ -12,6 +12,7 @@ h1{
     height: 100%;
     margin: 0;
     padding: 0;
+    background-color: #F5F5F5;
 }
 
 #header{
@@ -46,6 +47,7 @@ h1{
 
 #columnWrapper{
     width: 100%;
+    margin: 8px;
 
     display: flex;
     flex-direction: row;

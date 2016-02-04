@@ -3,7 +3,8 @@ angular.module('AcesUp').controller('AcesUpController', function($scope, $http){
     window.$scope = $scope;
 
     $scope.gameState = {};
-    $scope.score = 123;
+    $scope.score = 123456;
+
     /* --- On page load --- */
 
     // Get initial game state
@@ -27,6 +28,12 @@ angular.module('AcesUp').controller('AcesUpController', function($scope, $http){
 
     $scope.moveCard = function(src, dest){
         $http.post('/moveCard/' + src + '/' + dest, $scope.gameState).then(function(result){
+            setGameState(result.data);
+        });
+    };
+
+    $scope.resetGame = function(){
+        $http.get('/game').then(function(result){
             setGameState(result.data);
         });
     };
