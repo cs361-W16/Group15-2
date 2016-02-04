@@ -35,7 +35,7 @@ public class ApplicationController {
     public Result acesUp() {
         return Results.html().template("views/AcesUp/AcesUp.flt.html");
     }
-    
+
     public Result gameGet(){
         Game g = new Game();
         g.buildDeck();
@@ -61,5 +61,4 @@ public class ApplicationController {
         g.move(colFrom,colTo);
         return  Results.json().render(g);
     }
-
 }
