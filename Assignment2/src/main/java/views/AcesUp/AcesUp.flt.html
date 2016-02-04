@@ -51,17 +51,18 @@
             </div>
         </div>
 
-        <button ng-click="dealCards()">Deal</button>
-        <BR>Remove from:
-        <button ng-click="removeCard(0)">Column1</button>
-        <button ng-click="removeCard(1)">Column2</button>
-        <button ng-click="removeCard(2)">Column3</button>
-        <button ng-click="removeCard(3)">Column4</button>
+        <div class="content-main">
+            <button ng-click="dealCards()">Deal</button>
+            <BR>Remove from:
+            <md-button ng-click="removeCard(0)">Column1</md-button>
+            <md-button ng-click="removeCard(1)">Column2</md-button>
+            <md-button ng-click="removeCard(2)">Column3</md-button>
+            <md-button ng-click="removeCard(3)">Column4</md-button>
 
-        <input type="text" ng-model="srcCol"/> to
-        <input type="text" ng-model="destCol"/>
-        <button ng-click="moveCard(srcCol, destCol)">Move</button>
-        </script>
+            <input type="text" ng-model="srcCol"/> to
+            <input type="text" ng-model="destCol"/>
+            <button ng-click="moveCard(srcCol, destCol)">Move</button>
+        </div>
     </div>
 </body>
 </html>
