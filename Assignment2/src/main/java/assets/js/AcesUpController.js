@@ -43,24 +43,4 @@ angular.module('AcesUp').controller('AcesUpController', function($scope, $http){
     function setGameState(state){
         $scope.gameState = state;
     }
-
-    // Compare passed in gameState to newly received gameState
-    // Returns true if changed (valid move) else false (invalid move)
-    function gameStateChanged(oldState, newState){
-        for(var key in oldState){
-           if(oldState.hasOwnProperty(key)){
-               if(typeof oldState[key] === "object"){
-                   gameStateChanged(oldState[key], newState[key]);
-               }else{
-                   console.log(oldState[key]);
-                   console.log(newState[key]);
-                   if(newState[key] == undefined || oldState[key] != newState[key]){
-                       return true;
-                   }
-               }
-           }
-        }
-
-        return false;
-    }
 });
