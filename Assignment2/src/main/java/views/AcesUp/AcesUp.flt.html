@@ -29,22 +29,22 @@
             </md-toolbar>
             <div id="columnWrapper">
                 <div class="column">
-                    <div class="card" ng-repeat="card in gameState.cols[0]">
+                    <div class="card" ng-repeat="card in gameState.cols[0]" ng-class="{animate-new: $last}">
                         {{card.value}} - {{card.suit}}
                     </div>
                 </div>
                 <div class="column">
-                    <div class="card" ng-repeat="card in gameState.cols[1]">
+                    <div class="card" ng-repeat="card in gameState.cols[1]" ng-class="{animate-new: new_cards == 1}">
                         {{card.value}} - {{card.suit}}
                     </div>
                 </div>
                 <div class="column">
-                    <div class="card" ng-repeat="card in gameState.cols[2]">
+                    <div class="card" ng-repeat="card in gameState.cols[2]" ng-class="{animate-new: new_cards == 2}">
                         {{card.value}} - {{card.suit}}
                     </div>
                 </div>
                 <div class="column">
-                    <div class="card" ng-repeat="card in gameState.cols[3]">
+                    <div class="card" ng-repeat="card in gameState.cols[3]" ng-class="{animate-new: new_cards == 3}">
                         {{card.value}} - {{card.suit}}
                     </div>
                 </div>

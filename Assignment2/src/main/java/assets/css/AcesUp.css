@@ -8,10 +8,8 @@ h1{
 }
 
 /* Fade-In Effect */
-.visible {
-    visibility: visible;
-    opacity: 1;
-    transition: opacity 2s linear;
+.animate-new {
+    background-color: red;
 }
 
 /* Fade-Out Effect */

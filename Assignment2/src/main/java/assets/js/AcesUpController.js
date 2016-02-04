@@ -59,13 +59,16 @@ angular.module('AcesUp').controller('AcesUpController', function($scope, $http){
         // Iterate through every column
         for (i = 0; i < 4; i++) {
 
-            initial_length = initial_board[i].length;
-            new_length = $scope.gameState.cols[i].length;
+            var initial_length = initial_board[i].length;
+            var new_length = $scope.gameState.cols[i].length;
 
             /* Check to see if the column length has changed */
 
             if (initial_length < new_length) {
-                
+
+                // Set the $scope new_cards variable to the column with a new card
+                $scope.new_cards = i;
+
                 console.log("Added");
             }
             else if (initial_length > new_length) {
