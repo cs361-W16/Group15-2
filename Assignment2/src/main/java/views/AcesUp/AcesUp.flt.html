@@ -29,7 +29,7 @@
             </md-toolbar>
             <div id="columnWrapper">
                 <div class="column">
-                    <div class="card" ng-repeat="card in gameState.cols[0]" ng-class="{'new': ($last && new_col[0])}">
+                    <div class="card" ng-repeat="card in gameState.cols[0]" ng-class="{new: ($last && new_col[0])}">
                         {{card.value}} - {{card.suit}}
                     </div>
                 </div>

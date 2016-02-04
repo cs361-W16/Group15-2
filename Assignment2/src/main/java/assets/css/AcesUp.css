@@ -8,9 +8,25 @@ h1{
 }
 
 /* Fade-In Effect */
-.new {
-    background-color: red;
+@-webkit-keyframes flash {
+    0%, 50%, 100% {opacity: 1;}
+    25%, 75% {opacity: 0;}
 }
+@moz-webkit-keyframes flash {
+    0%, 50%, 100% {opacity: 1;}
+    25%, 75% {opacity: 0;}
+}
+@keyframes flash {
+    0%, 50%, 100% {opacity: 1;}
+    25%, 75% {opacity: 0;}
+}
+.new {
+    -webkit-animation-name: flash;
+    -moz-animation-name: flash;
+    animation-name: flash;
+
+} 
+
 
 /* Fade-Out Effect */
 .hidden {

@@ -29,39 +29,40 @@
             </md-toolbar>
             <div id="columnWrapper">
                 <div class="column">
-                    <div class="card" ng-repeat="card in gameState.cols[0]">
+                    <div class="card" ng-repeat="card in gameState.cols[0]" ng-class="{'new': ($last && new_col[0])}">
                         {{card.value}} - {{card.suit}}
                     </div>
                 </div>
                 <div class="column">
-                    <div class="card" ng-repeat="card in gameState.cols[1]">
+                    <div class="card" ng-repeat="card in gameState.cols[1]" ng-class="{new: ($last && new_col[1])}">
                         {{card.value}} - {{card.suit}}
                     </div>
                 </div>
                 <div class="column">
-                    <div class="card" ng-repeat="card in gameState.cols[2]">
+                    <div class="card" ng-repeat="card in gameState.cols[2]" ng-class="{new: ($last && new_col[2])}">
                         {{card.value}} - {{card.suit}}
                     </div>
                 </div>
                 <div class="column">
-                    <div class="card" ng-repeat="card in gameState.cols[3]">
+                    <div class="card" ng-repeat="card in gameState.cols[3]" ng-class="{new: ($last && new_col[3])}">
                         {{card.value}} - {{card.suit}}
                     </div>
                 </div>
             </div>
         </div>
 
-        <button ng-click="dealCards()">Deal</button>
-        <BR>Remove from:
-        <button ng-click="removeCard(0)">Column1</button>
-        <button ng-click="removeCard(1)">Column2</button>
-        <button ng-click="removeCard(2)">Column3</button>
-        <button ng-click="removeCard(3)">Column4</button>
+        <div class="content-main">
+            <md-button ng-click="dealCards()" class="md-raised md-warn">Deal</md-button>
+            <BR>Remove from:
+            <md-button ng-click="removeCard(0)" class="md-raised md-primary">Column1</md-button>
+            <md-button ng-click="removeCard(1)" class="md-raised md-primary">Column2</md-button>
+            <md-button ng-click="removeCard(2)" class="md-raised md-primary">Column3</md-button>
+            <md-button ng-click="removeCard(3)" class="md-raised md-primary">Column4</md-button>
 
-        <input type="text" ng-model="srcCol"/> to
-        <input type="text" ng-model="destCol"/>
-        <button ng-click="moveCard(srcCol, destCol)">Move</button>
-        </script>
+            <input type="text" ng-model="srcCol"/> to
+            <input type="text" ng-model="destCol"/>
+            <button ng-click="moveCard(srcCol, destCol)">Move</button>
+        </div>
     </div>
 </body>
 </html>
