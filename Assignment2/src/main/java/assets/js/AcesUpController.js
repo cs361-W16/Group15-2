@@ -4,6 +4,7 @@ angular.module('AcesUp').controller('AcesUpController', function($scope, $http){
 
     $scope.gameState = {};
     $scope.score = 123456;
+    $scope.new_col = [false, false, false, false];
 
     /* --- On page load --- */
 
@@ -67,7 +68,7 @@ angular.module('AcesUp').controller('AcesUpController', function($scope, $http){
             if (initial_length < new_length) {
 
                 // Set the $scope new_col variable to the column with a new card
-                $scope.new_col = true;
+                $scope.new_col[i] = true;
 
                 console.log("Added to " + i);
             }
