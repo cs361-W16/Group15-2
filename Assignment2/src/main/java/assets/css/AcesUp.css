@@ -7,6 +7,20 @@ h1{
     padding-top: 16px;
 }
 
+/* Fade-In Effect */
+.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 2s linear;
+}
+
+/* Fade-Out Effect */
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 2s, opacity 2s linear;
+}
+
 .wrapper{
     width: 100%;
     height: 100%;

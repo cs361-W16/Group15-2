@@ -15,8 +15,15 @@ angular.module('AcesUp').controller('AcesUpController', function($scope, $http){
     /* --- Actions --- */
 
     $scope.dealCards = function(){
+
+        // Store initial game state
+        initial_game_state = $scope.gameState;
+
         $http.post('/dealGame', $scope.gameState).then(function(result){
             setGameState(result.data);
+
+            // Animation
+            hideShow(initial_game_state);
         });
     };
 
@@ -42,5 +49,31 @@ angular.module('AcesUp').controller('AcesUpController', function($scope, $http){
 
     function setGameState(state){
         $scope.gameState = state;
+    }
+
+
+    function hideShow(initial_game_state) {
+
+        initial_board = initial_game_state.cols;
+
+        // Iterate through every column
+        for (i = 0; i < 4; i++) {
+
+            initial_length = initial_board[i].length;
+            new_length = $scope.gameState.cols[i].length;
+
+            /* Check to see if the column length has changed */
+
+            if (initial_length < new_length) {
+                
+                console.log("Added");
+            }
+            else if (initial_length > new_length) {
+                console.log("Removed");
+            }
+        }
+
+        // Debugging
+        console.log(initial_game_state.cols[0]);
     }
 });
