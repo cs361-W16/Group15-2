@@ -67,7 +67,7 @@ angular.module('AcesUp').controller('AcesUpController', function($scope, $http){
             if (initial_length < new_length) {
 
                 // Set the $scope new_col variable to the column with a new card
-                $scope.new_col = i;
+                $scope.new_col = true;
 
                 console.log("Added to " + i);
             }
