@@ -21,14 +21,7 @@ angular.module('AcesUp').controller('AcesUpController', function($scope, $http){
 
     $scope.removeCard = function(column){
         $http.post('/removeCard/' + column, $scope.gameState).then(function(result){
-            var newState = JSON.parse(angular.toJson($scope.gameState));
-
-            if(gameStateChanged(newState, result.data) == true){
-                setGameState(result.data);
-                console.log("Valid move!");
-            }else{
-                console.log("Invalid move!");
-            }
+            setGameState(result.data);
         });
     };
 
