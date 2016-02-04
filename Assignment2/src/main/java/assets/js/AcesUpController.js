@@ -32,7 +32,7 @@ angular.module('AcesUp').controller('AcesUpController', function($scope, $http){
         });
     };
 
-    $scope.resetGame = function(src, dest){
+    $scope.resetGame = function(){
         $http.get('/game').then(function(result){
             setGameState(result.data);
         });
