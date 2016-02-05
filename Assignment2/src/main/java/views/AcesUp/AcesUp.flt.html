@@ -50,6 +50,7 @@
                 </div>
             </div>
         </div>
+	
 
         <div class="content-main">
             <div style="display: flex;">
@@ -80,7 +81,13 @@
                 </md-input-container>
                 <md-button ng-click="moveCard(srcCol, destCol)" class="md-primary md-raised">Move</md-button>
             </div>
+		
         </div>
+		
+		<div id="dimmer" ng-show="invalidMove == true">
+			<p>Invalid Move!</p>
+		</div>
+		
     </div>
 </body>
 </html>
