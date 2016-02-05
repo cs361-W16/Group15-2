@@ -70,6 +70,10 @@ angular.module('AcesUp').controller('AcesUpController', function($scope, $http){
                 // Set the $scope new_col variable to the column with a new card
                 $scope.new_col[i] = true;
 
+                // Get the last card in the column
+                // var $new_card = angular.element(document.querySelector(".column:nth-of-type(" + i + ") :nth-child(" + (new_length - 1) + ")"));
+                // console.log($new_card);
+
                 console.log("Added to " + i);
             }
             else if (initial_length > new_length) {
@@ -80,4 +84,5 @@ angular.module('AcesUp').controller('AcesUpController', function($scope, $http){
         // Debugging
         console.log(initial_game_state.cols[0]);
     }
+
 });

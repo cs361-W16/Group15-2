@@ -8,31 +8,26 @@ h1{
 }
 
 /* Fade-In Effect */
-@-webkit-keyframes flash {
-    0%, 50%, 100% {opacity: 1;}
-    25%, 75% {opacity: 0;}
-}
-@moz-webkit-keyframes flash {
-    0%, 50%, 100% {opacity: 1;}
-    25%, 75% {opacity: 0;}
-}
 @keyframes flash {
-    0%, 50%, 100% {opacity: 1;}
-    25%, 75% {opacity: 0;}
+  from, 50%, to {
+    opacity: 1;
+  }
+
+  25%, 75% {
+    opacity: 0;
+  }
 }
+
 .new {
+    animation-name: flash;
     -webkit-animation-name: flash;
     -moz-animation-name: flash;
-    animation-name: flash;
 
-} 
+    color: blue;
+}
 
-
-/* Fade-Out Effect */
-.hidden {
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s 2s, opacity 2s linear;
+.red {
+    color: red;
 }
 
 .wrapper{
