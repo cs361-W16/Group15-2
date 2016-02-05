@@ -4,6 +4,7 @@ angular.module('AcesUp').controller('AcesUpController', function($scope, $http){
 
     $scope.gameState = {};
     $scope.score = 123456;
+    $scope.colOptions = [0, 1, 2, 3];
 
     /* --- On page load --- */
 
