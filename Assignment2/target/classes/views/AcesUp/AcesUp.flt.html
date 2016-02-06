@@ -50,18 +50,44 @@
                 </div>
             </div>
         </div>
+	
 
-        <button ng-click="dealCards()">Deal</button>
-        <BR>Remove from:
-        <button ng-click="removeCard(0)">Column1</button>
-        <button ng-click="removeCard(1)">Column2</button>
-        <button ng-click="removeCard(2)">Column3</button>
-        <button ng-click="removeCard(3)">Column4</button>
+        <div class="content-main">
+            <div style="display: flex;">
+                <md-button ng-click="dealCards()" class="md-raised md-warn">Deal</md-button>
+                <span flex></span>
+                <div>
+                    <span>Remove from:</span>
+                    <md-button ng-click="removeCard(0)" class="md-raised md-primary">Column1</md-button>
+                    <md-button ng-click="removeCard(1)" class="md-raised md-primary">Column2</md-button>
+                    <md-button ng-click="removeCard(2)" class="md-raised md-primary">Column3</md-button>
+                    <md-button ng-click="removeCard(3)" class="md-raised md-primary">Column4</md-button>
+                </div>
+            </div>
 
-        <input type="text" ng-model="srcCol"/> to
-        <input type="text" ng-model="destCol"/>
-        <button ng-click="moveCard(srcCol, destCol)">Move</button>
-        </script>
+            <div style="display: flex;">
+                <span flex></span>
+                <md-input-container style="margin-right: 10px;">
+                    <label>Source</label>
+                    <md-select ng-model="srcCol">
+                        <md-option ng-repeat="col in colOptions" value="{{col}}">{{col + 1}}</md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container style="margin-right: 10px;">
+                    <label>Destination</label>
+                    <md-select ng-model="destCol">
+                        <md-option ng-repeat="col in colOptions" value="{{col}}">{{col + 1}}</md-option>
+                    </md-select>
+                </md-input-container>
+                <md-button ng-click="moveCard(srcCol, destCol)" class="md-primary md-raised">Move</md-button>
+            </div>
+		
+        </div>
+		
+		<div id="dimmer" ng-show="invalidMove == true">
+			<p>Invalid Move!</p>
+		</div>
+		
     </div>
 </body>
 </html>

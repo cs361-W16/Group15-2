@@ -3,7 +3,7 @@ angular.module('AcesUp').controller('AcesUpController', function($scope, $http, 
     window.$scope = $scope;
 
     $scope.gameState = {};
-    $scope.score = 123456;
+    $scope.score = 0;
     $scope.colOptions = [0, 1, 2, 3];
 	$scope.invalidMove = false;
     /* --- On page load --- */
@@ -26,6 +26,7 @@ angular.module('AcesUp').controller('AcesUpController', function($scope, $http, 
             if(moveValid($scope.gameState, result.data)){
                 setGameState(result.data);
                 console.log("Valid move.");
+                $scope.score++;
 				//$scope.score++;
             }else{ 
 	// flash the screen red and display invalid move
@@ -46,6 +47,7 @@ angular.module('AcesUp').controller('AcesUpController', function($scope, $http, 
         $http.get('/game').then(function(result){
             setGameState(result.data);
         });
+        $scope.score = 0;
     };
 
     /* --- Helper functions --- */
