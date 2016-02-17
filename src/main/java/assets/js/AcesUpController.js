@@ -6,10 +6,13 @@ angular.module('AcesUp').controller('AcesUpController', function($scope, $http, 
     $scope.score = 0;
     $scope.colOptions = [0, 1, 2, 3];
     $scope.invalidMove = false;
+    $scope.locale = 'Freedom';
+    $scope.locales = ['Freedom', 'Spanish'];
 
     /* --- On page load --- */
 
     // Get initial game state
+    // TODO POST request with locale
     $http.get('/game').then(function(result){
         setGameState(result.data);
     });
