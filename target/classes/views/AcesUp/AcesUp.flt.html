@@ -30,27 +30,26 @@
             <div id="columnWrapper">
                 <div class="column">
                     <div class="card" ng-repeat="card in gameState.cols[0]">
-                        {{card.value}} - {{card.suit}}
+                        <img class="card-img" ng-class="{'offset': ($first == false)}" ng-src="/assets/img/{{card.value}}_of_{{card.suit}}.png">
                     </div>
                 </div>
                 <div class="column">
                     <div class="card" ng-repeat="card in gameState.cols[1]">
-                        {{card.value}} - {{card.suit}}
+                        <img class="card-img" ng-class="{'offset': ($first == false)}" ng-src="/assets/img/{{card.value}}_of_{{card.suit}}.png">
                     </div>
                 </div>
                 <div class="column">
                     <div class="card" ng-repeat="card in gameState.cols[2]">
-                        {{card.value}} - {{card.suit}}
+                        <img class="card-img" ng-class="{'offset': ($first == false)}" ng-src="/assets/img/{{card.value}}_of_{{card.suit}}.png">
                     </div>
                 </div>
                 <div class="column">
                     <div class="card" ng-repeat="card in gameState.cols[3]">
-                        {{card.value}} - {{card.suit}}
+                        <img class="card-img" ng-class="{'offset': ($first == false)}" ng-src="/assets/img/{{card.value}}_of_{{card.suit}}.png">
                     </div>
                 </div>
             </div>
         </div>
-	
 
         <div class="content-main">
             <div style="display: flex;">
@@ -81,13 +80,11 @@
                 </md-input-container>
                 <md-button ng-click="moveCard(srcCol, destCol)" class="md-primary md-raised">Move</md-button>
             </div>
-		
         </div>
-		
-		<div id="dimmer" ng-show="invalidMove == true">
-			<p>Invalid Move!</p>
-		</div>
-		
     </div>
+
+    <div id="dimmer" ng-show="invalidMove == true">
+		<p>Invalid Move!</p>
+	</div>
 </body>
 </html>

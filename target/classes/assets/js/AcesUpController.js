@@ -1,9 +1,11 @@
-angular.module('AcesUp').controller('AcesUpController', function($scope, $http){
+angular.module('AcesUp').controller('AcesUpController', function($scope, $http, $interval){
     // Debugging
     window.$scope = $scope;
 
     $scope.gameState = {};
-    $scope.score = 123456;
+    $scope.score = 0;
+    $scope.colOptions = [0, 1, 2, 3];
+    $scope.invalidMove = false;
 
     /* --- On page load --- */
 
@@ -22,7 +24,17 @@ angular.module('AcesUp').controller('AcesUpController', function($scope, $http){
 
     $scope.removeCard = function(column){
         $http.post('/removeCard/' + column, $scope.gameState).then(function(result){
-            setGameState(result.data);
+            if(moveValid($scope.gameState, result.data)){
+                setGameState(result.data);
+                console.log("Valid move.");
+                $scope.score++;
+                //$scope.score++;
+            }else{
+                // flash the screen red and display invalid move
+                console.log("Invalid move.");
+                $scope.invalidMove = true;
+                $interval(error, 1000);
+            }
         });
     };
 
@@ -43,4 +55,19 @@ angular.module('AcesUp').controller('AcesUpController', function($scope, $http){
     function setGameState(state){
         $scope.gameState = state;
     }
+
+    function moveValid(oldState, newState){
+         for(var i = 0; i < 4; i++){
+             // If old/new game states differ
+             if(newState.cols[i].length != oldState.cols[i].length){
+                 return true;
+             }
+         }
+         return false;
+     }
+
+ 	function error (){
+ 		$scope.invalidMove = false;
+ 		$interval.cancel(error);
+ 	}
 });
