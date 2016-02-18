@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 /**
  * Created by michaelhilton on 1/26/16.
  */
-public class testCard {
+public class CardTestCase {
     @Test
     public void testGetSuit(){
         Card c = new Card(5,Suit.clubs);
@@ -22,7 +22,7 @@ public class testCard {
 
     @Test
     public void testMoveCard(){
-        Game g = new Game();
+        AmericanGame g = new AmericanGame();
         g.buildDeck();
         g.customDeal(0,3,6,9);
         g.remove(2);
