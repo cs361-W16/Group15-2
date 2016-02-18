@@ -22,40 +22,6 @@ public class Game {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-    //I like space between my methods
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public void buildDeck() {
         for(int i = 2; i < 15; i++){
             deck.add(new Card(i,Suit.clubs));
@@ -64,31 +30,6 @@ public class Game {
             deck.add(new Card(i,Suit.spades));
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-    //I like space between my methods
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     public void shuffle() {
@@ -103,6 +44,7 @@ public class Game {
         }
     }
 
+
     //customDeal to setup game for testing purposes
     public void customDeal(int c1, int c2, int c3, int c4) {
         cols.get(0).add(deck.get(c1));
@@ -114,6 +56,7 @@ public class Game {
         cols.get(3).add(deck.get(c4));
         deck.remove(c4);
     }
+
 
     public void remove(int columnNumber) {
         if(colHasCards(columnNumber)) {
@@ -137,12 +80,14 @@ public class Game {
         }
     }
 
+
     private boolean colHasCards(int colNumber) {
         if(this.cols.get(colNumber).size()>0){
             return true;
         }
         return false;
     }
+
 
     private Card getTopCard(int columnNumber) {
         return this.cols.get(columnNumber).get(this.cols.get(columnNumber).size()-1);
@@ -155,15 +100,13 @@ public class Game {
         this.addCardToCol(colTo,cardToMove);
     }
 
+
     private void addCardToCol(int colTo, Card cardToMove) {
         cols.get(colTo).add(cardToMove);
     }
 
+
     private void removeCardFromCol(int colFrom) {
         this.cols.get(colFrom).remove(this.cols.get(colFrom).size()-1);
-
-        //I think that should conflict...
-        //Did it work yet?
-
     }
 }
