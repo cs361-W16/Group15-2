@@ -19,6 +19,8 @@ package controllers;
 
 import org.junit.Test;
 
+import models.Game;
+
 import ninja.NinjaDocTester;
 import org.doctester.testbrowser.Request;
 import org.doctester.testbrowser.Response;
@@ -50,6 +52,26 @@ public class ApiControllerDocTesterTest extends NinjaDocTester {
 
         assertThat(response.payload, containsString("Aces Up"));
         //assertThat(response.payload, containsString("columnOfCards"));
+    }
+
+
+    /* Aces Up controller tests */
+
+    @Test
+    public void testgameGet() {
+        Response response = makeRequest(
+            Request.GET().url(
+                testServerUrl().path("/game")));
+
+        assertThat(response.payload, containsString("deck"));
+    }
+
+
+    @Test
+    public void testgamePost() {
+        Response response = makeRequest(
+            Request.POST().url(
+                testServerUrl().path("/game")));
     }
 
 }
