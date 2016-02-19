@@ -17,6 +17,7 @@
 package controllers;
 
 import models.AmericanGame;
+import models.SpanishGame;
 import ninja.Context;
 import ninja.Result;
 import ninja.Results;
@@ -43,6 +44,27 @@ public class ApplicationController {
         g.dealFour();
 
         return Results.json().render(g);
+    }
+
+    public Result gameGetPost(Context context, @PathParam("locale") String locale){
+        System.out.println("locale: " + locale);
+        if(locale.equals("Freedom")){
+            AmericanGame g = new AmericanGame();
+            g.buildDeck();
+            g.shuffle();
+            g.dealFour();
+
+            return Results.json().render(g);
+        }else if(locale.equals("Spanish")){
+            SpanishGame g = new SpanishGame();
+            g.buildDeck();
+            g.shuffle();
+            g.dealFour();
+
+            return Results.json().render(g);
+        }
+
+        return Results.json().render("Invalid locale.");
     }
 
     public Result dealPost(Context context, AmericanGame g) {
