@@ -50,10 +50,10 @@ public class SpanishGameTestCase {
         SpanishGame g = new SpanishGame();
         g.buildDeck();
         g.customDeal(0,3,6,9);
-        assertEquals("2carrots",g.cols.get(0).get(0).toString());
-        assertEquals("3carrots",g.cols.get(1).get(0).toString());
-        assertEquals("4carrots",g.cols.get(2).get(0).toString());
-        assertEquals("5carrots",g.cols.get(3).get(0).toString());
+        assertEquals("1carrots",g.cols.get(0).get(0).toString());
+        assertEquals("2carrots",g.cols.get(1).get(0).toString());
+        assertEquals("3carrots",g.cols.get(2).get(0).toString());
+        assertEquals("4carrots",g.cols.get(3).get(0).toString());
     }
 
 
