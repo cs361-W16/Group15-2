@@ -25,10 +25,32 @@ public class SpanishGameTestCase {
 
 	@Test
     public void testSpanishGameInit(){
-        SpanishGame g = new SpanishGame();
-        g.buildDeck();
-        g.shuffle();
-        assertNotEquals(2,g.deck.get(0).getValue());
+        SpanishGame unshuffled = new SpanishGame();
+        unshuffled.buildDeck();
+
+        SpanishGame shuffled = new SpanishGame();
+        shuffled.buildDeck();
+        shuffled.shuffle();
+
+        // Compare each card in both decks
+        int matches = 0;
+        int size = unshuffled.deck.size();
+        for(int i = 0; i < size; i++){
+            Card unshuffledCard = unshuffled.deck.get(i);
+            Card shuffledCard = shuffled.deck.get(i);
+
+            Suit unshuffledSuit = unshuffledCard.getSuit();
+            int unshuffledVal = unshuffledCard.getValue();
+            Suit shuffledSuit = shuffledCard.getSuit();
+            int shuffledVal = shuffledCard.getValue();
+
+            if(unshuffledSuit == shuffledSuit && unshuffledVal == shuffledVal){
+                matches++;
+            }
+        }
+
+        // Ensure that shuffled deck is at least 85% unique
+        assertTrue((matches / size) <= 0.15);
     }
 
 
