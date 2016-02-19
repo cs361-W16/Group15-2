@@ -38,6 +38,8 @@ public class ApiControllerDocTesterTest extends NinjaDocTester {
                 Request.GET().url(
                         testServerUrl().path(URL_INDEX)));
 
+        System.out.println(response.payload);
+
         assertThat(response.payload, containsString("Hello World!"));
         assertThat(response.payload, containsString("BAM!"));
     }
@@ -48,8 +50,25 @@ public class ApiControllerDocTesterTest extends NinjaDocTester {
                 Request.GET().url(
                         testServerUrl().path(URL_ACES_UP)));
 
+        System.out.println(response.payload);
+
         assertThat(response.payload, containsString("Aces Up"));
         //assertThat(response.payload, containsString("columnOfCards"));
     }
 
+    @Test
+    public void testAmericanDeck(){
+        Response response = makeRequest(Request.POST().url(testServerUrl().path("/gamePost/Freedom")));
+
+        System.out.println(response.payload);
+        assertThat(response.payload, containsString("spades"));
+    }
+
+    @Test
+    public void testSpanishDeck(){
+        Response response = makeRequest(Request.POST().url(testServerUrl().path("/gamePost/Spanish")));
+
+        System.out.println(response.payload);
+        assertThat(response.payload, containsString("carrots"));
+    }
 }
