@@ -5,9 +5,9 @@ import java.util.Collections;
 import java.util.Random;
 
 
-public class AmericanGame extends Game {
+public class FreedomGame extends Game {
 
-    public AmericanGame(){
+    public FreedomGame(){
         cols.add(new ArrayList<Card>());
         cols.add(new ArrayList<Card>());
         cols.add(new ArrayList<Card>());

@@ -5,27 +5,27 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 
-public class AmericanGameTestCase {
+public class FreedomGameTestCase {
 
     @Test
     public void testGameCreation(){
-        AmericanGame g = new AmericanGame();
+        FreedomGame g = new FreedomGame();
         assertNotNull(g);
     }
 
     @Test
     public void testAmericanGameBuildDeck(){
-        AmericanGame g = new AmericanGame();
+        FreedomGame g = new FreedomGame();
         g.buildDeck();
         assertEquals(52,g.deck.size());
     }
 
     @Test
     public void testAmericanGameInit(){
-        AmericanGame unshuffled = new AmericanGame();
+        FreedomGame unshuffled = new FreedomGame();
         unshuffled.buildDeck();
 
-        AmericanGame shuffled = new AmericanGame();
+        FreedomGame shuffled = new FreedomGame();
         shuffled.buildDeck();
         shuffled.shuffle();
 
@@ -52,7 +52,7 @@ public class AmericanGameTestCase {
 
     @Test
     public void testAmericanGameStart(){
-        AmericanGame g = new AmericanGame();
+        FreedomGame g = new FreedomGame();
         g.buildDeck();
         g.shuffle();
         g.dealFour();
@@ -64,7 +64,7 @@ public class AmericanGameTestCase {
 
     @Test
     public void testCustomDeal(){
-        AmericanGame g = new AmericanGame();
+        FreedomGame g = new FreedomGame();
         g.buildDeck();
         g.customDeal(0,3,6,9);
         assertEquals("2clubs",g.cols.get(0).get(0).toString());
@@ -75,7 +75,7 @@ public class AmericanGameTestCase {
 
     @Test
     public void testRemoveFunction(){
-        AmericanGame g = new AmericanGame();
+        FreedomGame g = new FreedomGame();
         g.buildDeck();
         g.customDeal(0,3,6,9);
         g.remove(2);

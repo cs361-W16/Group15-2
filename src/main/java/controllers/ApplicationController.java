@@ -16,7 +16,7 @@
 
 package controllers;
 
-import models.AmericanGame;
+import models.FreedomGame;
 import models.SpanishGame;
 import ninja.Context;
 import ninja.Result;
@@ -38,7 +38,7 @@ public class ApplicationController {
     }
 
     public Result gameGet(){
-        AmericanGame g = new AmericanGame();
+        FreedomGame g = new FreedomGame();
         g.buildDeck();
         g.shuffle();
         g.dealFour();
@@ -49,7 +49,7 @@ public class ApplicationController {
     public Result gameGetPost(Context context, @PathParam("locale") String locale){
         System.out.println("locale: " + locale);
         if(locale.equals("Freedom")){
-            AmericanGame g = new AmericanGame();
+            FreedomGame g = new FreedomGame();
             g.buildDeck();
             g.shuffle();
             g.dealFour();
@@ -67,19 +67,19 @@ public class ApplicationController {
         return Results.json().render("Invalid locale.");
     }
 
-    public Result dealPost(Context context, AmericanGame g) {
+    public Result dealPost(Context context, FreedomGame g) {
         if(context.getRequestPath().contains("deal")){
             g.dealFour();
         }
         return Results.json().render(g);
     }
 
-    public Result removeCard(Context context, @PathParam("column") int colNumber, AmericanGame g){
+    public Result removeCard(Context context, @PathParam("column") int colNumber, FreedomGame g){
         g.remove(colNumber);
         return  Results.json().render(g);
     }
 
-    public Result moveCard(Context context, @PathParam("columnFrom") int colFrom, @PathParam("columnTo") int colTo, AmericanGame g){
+    public Result moveCard(Context context, @PathParam("columnFrom") int colFrom, @PathParam("columnTo") int colTo, FreedomGame g){
         g.move(colFrom,colTo);
         return  Results.json().render(g);
     }
