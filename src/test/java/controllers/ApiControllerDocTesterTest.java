@@ -68,10 +68,19 @@ public class ApiControllerDocTesterTest extends NinjaDocTester {
 
 
     @Test
-    public void testgamePost() {
+    public void testgameDealPost() {
+        // Make request Game object
+        Game game = new Game();
+
         Response response = makeRequest(
-            Request.POST().url(
-                testServerUrl().path("/game")));
+            Request
+                .POST().url(testServerUrl().path("/game"))
+                .contentTypeApplicationJson()
+                .payload(game)
+            );
+
+        // Assert response is Game object
+        assertThat(response.payload, containsString("poop"))
     }
 
 }
