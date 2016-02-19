@@ -19,7 +19,7 @@ package controllers;
 
 import org.junit.Test;
 
-import models.Game;
+import models.AmericanGame;
 
 import ninja.NinjaDocTester;
 import org.doctester.testbrowser.Request;
@@ -69,18 +69,25 @@ public class ApiControllerDocTesterTest extends NinjaDocTester {
 
     @Test
     public void testgameDealPost() {
-        // Make request Game object
-        Game game = new Game();
+        // Make request FreedomGame object
+        FreedomGame american_game = new FreedomGame();
 
         Response response = makeRequest(
             Request
-                .POST().url(testServerUrl().path("/game"))
+                .POST().url(testServerUrl().path("/dealGame"))
                 .contentTypeApplicationJson()
-                .payload(game)
+                .payload(american_game)
             );
 
         // Assert response is Game object
-        assertThat(response.payload, containsString("poop"))
+        assertThat(response.payload, containsString("deck"));
+    }
+
+
+    @Test
+    public void testremoveCard() {
+        // Make request FreedomGame object
+
     }
 
 }
