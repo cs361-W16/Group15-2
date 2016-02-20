@@ -16,7 +16,7 @@ public class SpanishGame extends Game {
 
 
     public void buildDeck() {
-        for(int i = 2; i < 12; i++){
+        for(int i = 1; i < 11; i++){
             deck.add(new Card(i,Suit.carrots));
             deck.add(new Card(i,Suit.coins));
             deck.add(new Card(i,Suit.cups));
