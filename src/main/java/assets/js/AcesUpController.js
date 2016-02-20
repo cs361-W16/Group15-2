@@ -54,7 +54,8 @@ angular.module('AcesUp').controller('AcesUpController', function($scope, $http, 
     };
 
     $scope.chooseGame = function(){
-        $http.post('/game/', $scope.locale).then(function(result){
+        $http.post('/game/' + $scope.locale)
+        .then(function(result){
             setGameState(result.data);
         });
     };

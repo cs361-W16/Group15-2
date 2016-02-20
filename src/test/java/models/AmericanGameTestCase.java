@@ -82,6 +82,4 @@ public class AmericanGameTestCase {
         assertEquals(0,g.cols.get(2).size());
     }
 
-
-
 }

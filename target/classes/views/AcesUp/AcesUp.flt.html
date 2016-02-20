@@ -7,7 +7,6 @@
 <script type="text/javascript" src="https://code.angularjs.org/1.5.0-rc.2/angular-aria.js"></script>
 <script type="text/javascript" src="/assets/js/app.js"></script>
 <script type="text/javascript" src="/assets/js/AcesUpController.js"></script>
-<script type="text/javascript" src="/assets/js/LocaleController.js"></script>
 
 <body ng-app="AcesUp" ng-controller="AcesUpController">
     <div class="wrapper">
@@ -85,7 +84,7 @@
             <div style="display: flex; margin-left: 16px;">
                 <md-input-container style="margin-right: 10px;">
                     <label>Select Locale</label>
-                    <md-select ng-model="locale">
+                    <md-select ng-model="locale" ng-change="chooseGame()">
                         <md-option ng-repeat="locale in locales" value="{{locale}}">{{locale}}</md-option>
                     </md-select>
                 </md-input-container>
