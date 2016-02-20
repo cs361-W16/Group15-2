@@ -85,7 +85,7 @@
             <div style="display: flex; margin-left: 16px;">
                 <md-input-container style="margin-right: 10px;">
                     <label>Select Locale</label>
-                    <md-select ng-model="locale">
+                    <md-select ng-model="locale" ng-change="chooseGame()">
                         <md-option ng-repeat="locale in locales" value="{{locale}}">{{locale}}</md-option>
                     </md-select>
                 </md-input-container>
