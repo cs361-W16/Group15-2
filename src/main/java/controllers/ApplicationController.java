@@ -17,6 +17,7 @@
 package controllers;
 
 import models.AmericanGame;
+import models.SpanishGame;
 import ninja.Context;
 import ninja.Result;
 import ninja.Results;
@@ -45,6 +46,31 @@ public class ApplicationController {
         return Results.json().render(g);
     }
 
+
+    public Result gamePost(Context context, @PathParam("locale") String locale) {
+        // Conditional to determine which type of Game subclass to return
+        if (locale.equals("American")) {
+            AmericanGame american_game = new AmericanGame();
+            american_game.buildDeck();
+            american_game.shuffle();
+            american_game.dealFour();
+
+            return Results.json().render(american_game);
+        }
+        else if (locale.equals("Spanish")) {
+            SpanishGame spanish_game = new SpanishGame();
+            spanish_game.buildDeck();
+            spanish_game.shuffle();
+            spanish_game.dealFour();
+
+            return Results.json().render(spanish_game);
+        }
+        else {
+            return Results.json().render("Invalid locale.");
+        }
+    }
+
+
     public Result dealPost(Context context, AmericanGame g) {
         if(context.getRequestPath().contains("deal")){
             g.dealFour();
@@ -52,10 +78,12 @@ public class ApplicationController {
         return Results.json().render(g);
     }
 
+
     public Result removeCard(Context context, @PathParam("column") int colNumber, AmericanGame g){
         g.remove(colNumber);
         return  Results.json().render(g);
     }
+
 
     public Result moveCard(Context context, @PathParam("columnFrom") int colFrom, @PathParam("columnTo") int colTo, AmericanGame g){
         g.move(colFrom,colTo);
