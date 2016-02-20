@@ -18,6 +18,7 @@ package controllers;
 
 import models.AmericanGame;
 import models.SpanishGame;
+import models.Game;
 import ninja.Context;
 import ninja.Result;
 import ninja.Results;
