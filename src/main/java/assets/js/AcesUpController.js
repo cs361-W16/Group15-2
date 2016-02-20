@@ -80,4 +80,5 @@ angular.module('AcesUp').controller('AcesUpController', function($scope, $http, 
  		$scope.invalidMove = false;
  		$interval.cancel(error);
  	}
+    
 });
