@@ -52,4 +52,34 @@ public class ApiControllerDocTesterTest extends NinjaDocTester {
         //assertThat(response.payload, containsString("columnOfCards"));
     }
 
+
+    /* Aces Up controller tests */
+
+    @Test
+    public void testgameGet() {
+        Response response = makeRequest(
+            Request.GET().url(
+                testServerUrl().path("/game")));
+
+        assertThat(response.payload, containsString("deck"));
+    }
+
+
+    @Test
+    public void testAmericanDeck() {
+        Response response = makeRequest(
+            Request.POST().url(testServerUrl().path("/game/American")));
+
+        assertThat(response.payload, containsString("spades"));
+    }
+
+
+    @Test
+    public void testSpanishDeck() {
+        Response response = makeRequest(
+            Request.POST().url(testServerUrl().path("/game/Spanish")));
+
+        assertThat(response.payload, containsString("carrots"));
+    }
+
 }
